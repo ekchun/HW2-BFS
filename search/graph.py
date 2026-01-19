@@ -21,7 +21,40 @@ class Graph:
         * If there is an end node input and a path does not exist, return None
 
         """
-        return
+        if start not in self.graph:
+            return None
+        
+        queue = []
+        visited = {}  # set to track nodes and their parent
+
+        queue.append(start) # queue start node
+        visited[start] = None # mark start as visited
+
+        while queue: # visit nodes
+            v = queue.pop(0) # dequeue a node
+            N = self.graph[v] # get neighbors
+
+            for w in N: # look at each neighbor
+                if w not in visited: 
+                    visited[w] = v # mark neighbor as visited
+                    queue.append(w) # queue neighbor
+
+        # NO END NODE
+        if end is None:
+            return list(visited.keys()) # return BFS traversal order
+        
+        # END W/O PATH
+        if end not in visited:
+            return None # no path exists
+
+        # END W/ PATH
+        path = []
+        current = end
+        while current is not None:
+            path.append(current)
+            current = visited[current]
+
+        return path[::-1]
 
 
 
