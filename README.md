@@ -1,5 +1,13 @@
+![BuildStatus](https://github.com/ekchun/HW2-BFS/workflows/HW2-BFS/badge.svg?event=push)
+
 # Assignment 2
 Breadth-first search
+
+# Eden's notes!
+Done yet again by me and ChatGPT... I promise I'm working on improving my coding skills, though. I was a bit confused by working with the adjacency list files, which was where I mainly consulted "Chat". I also promise to try to go to office hours instead, I just had a conflict for these first three weeks...
+
+Anyway. I have lots of comments (mainly for me!) to stay organized and clearly define each part of my function/tests. Hope you find it clear and I am very open to any stylistic tips, as I've never taken a formal coding class. That's all.
+
 
 # Assignment Overview
 The purpose of this assignment is to get you comfortable working with graph structures and to implement a breadth-first search function to traverse the graph and find the shortest path between nodes.

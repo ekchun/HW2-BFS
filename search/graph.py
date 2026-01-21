@@ -24,8 +24,8 @@ class Graph:
         if len(self.graph) == 0: # empty graph
             return [] if end is None else None # [] for traversal, None for path
         
-        if start not in self.graph: # no start?
-            return None
+        if start not in self.graph:  # no start node
+            raise ValueError(f"Start node '{start}' not in graph")
         
         queue = []
         visited = {}  # set, to track nodes and their parent
