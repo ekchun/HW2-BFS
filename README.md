@@ -1,4 +1,4 @@
-![Build Status](https://github.com/ekchun/HW2-BFS/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/ekchun/HW2-BFS/actions/workflows/test.yml/badge.svg)
 
 # Assignment 2
 Breadth-first search
