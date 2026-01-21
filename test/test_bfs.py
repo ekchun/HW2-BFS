@@ -10,7 +10,23 @@ def test_bfs_traversal():
     that all nodes are being traversed (ie. returns 
     the right number of nodes, in the right order, etc.)
     """
-    pass
+
+    g = graph.Graph("data/tiny_network.adjlist")
+    start = g.bfs("31806696")
+
+    bfs_5 = [
+        "31806696",
+        "Luke Gilbert",
+        "33483487",
+        "31626775",
+        "31540829"
+    ]
+    assert start[:5] == bfs_5 # check first 5 nodes in bfs traversal
+
+    result = g.bfs("fake_node123")
+    assert result is None # test for non-existent node
+
+
 
 def test_bfs():
     """
@@ -23,4 +39,22 @@ def test_bfs():
     Include an additional test for nodes that are not connected 
     which should return None. 
     """
-    pass
+    g = graph.Graph("data/citation_network.adjlist")
+
+    # (shortest) path between connected nodes
+    path = g.bfs("34413319", "34968246")
+    assert path[0] == "34413319"
+    assert path[-1] == "34968246"
+    assert len(path) >= 2
+    assert path == ["34413319", "Nadav Ahituv", "34968246"]  # expected shortest path
+
+    # no path between nodes
+    neighbors = g.bfs("Charles Chiu")
+    unreachable = None
+    for node in g.graph.nodes:
+        if node not in neighbors:
+            unreachable = node
+            break
+
+    assert unreachable is not None
+    assert g.bfs("Charles Chiu", unreachable) is None

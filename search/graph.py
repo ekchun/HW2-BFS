@@ -21,11 +21,14 @@ class Graph:
         * If there is an end node input and a path does not exist, return None
 
         """
-        if start not in self.graph:
+        if len(self.graph) == 0: # empty graph
+            return [] if end is None else None # [] for traversal, None for path
+        
+        if start not in self.graph: # no start?
             return None
         
         queue = []
-        visited = {}  # set to track nodes and their parent
+        visited = {}  # set, to track nodes and their parent
 
         queue.append(start) # queue start node
         visited[start] = None # mark start as visited
@@ -45,7 +48,7 @@ class Graph:
         
         # END W/O PATH
         if end not in visited:
-            return None # no path exists
+            return None
 
         # END W/ PATH
         path = []
