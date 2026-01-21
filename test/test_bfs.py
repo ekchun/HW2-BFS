@@ -24,7 +24,7 @@ def test_bfs_traversal():
     assert start[:5] == bfs_5 # check first 5 nodes in bfs traversal
 
     with pytest.raises(ValueError):
-        g.bfs("fake_node123") # test for non-existent node; edge case 1 + use ValueError
+        g.bfs("fake_node123") # test for non-existent start; edge case 1 + use ValueError
 
 def test_bfs():
     """
@@ -56,3 +56,8 @@ def test_bfs():
 
     assert unreachable is not None
     assert g.bfs("Charles Chiu", unreachable) is None
+
+    # test for non-existent end; edge case 3
+    end = "fake_node123"
+    assert end not in g.graph
+    assert g.bfs("34413319", end) is None
